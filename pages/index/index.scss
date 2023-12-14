@@ -1,0 +1,428 @@
+@import "../../app";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  @include bgImg("home_top.png");
+  background-position: top center;
+  background-size: 100%;
+  .head {
+    width: 100%;
+    height: 410rpx;
+    flex-shrink: 0;
+    .girl {
+      position: absolute;
+      right: 20rpx;
+      top: 178rpx;
+      width: 328rpx;
+      height: 320rpx;
+      @include bgImg("head_girl.png");
+    }
+    .icon_talk {
+      position: absolute;
+      right: 270rpx;
+      top: 260rpx;
+      width: 34rpx;
+      height: 40rpx;
+      @include bgImg("icon_talk.png");
+      animation: blink 1s infinite;
+    }
+    .lighthouse{
+      position: absolute;
+      right: 0;
+      top: 120rpx;
+      width: 88rpx;
+      height: 426rpx;
+      @include bgImg("lighthouse.png");
+    }
+    .head_main {
+      .img_title {
+        position: absolute;
+        top: 230rpx;
+        left: 30rpx;
+        width: 384rpx;
+        height: 42rpx;
+        @include bgImg("text_1.png");
+      }
+      .head_hint{
+        position: absolute;
+        top: 280rpx;
+        left: 30rpx;
+        width: 420rpx;
+        font-size: 28rpx;
+        color: #FFFFFF;
+        line-height: 32rpx;
+        font-weight: bold;
+       
+      }
+    }
+
+    .icon_a {
+      position: absolute;
+      top: 208rpx;
+      right: 288rpx;
+      width: 28rpx;
+      height: 30rpx;
+      @include bgImg("icon_a.png");
+      animation: aniA 30s linear infinite;
+    }
+
+    .icon_b {
+      position: absolute;
+      top: 326rpx;
+      right: 354rpx;
+      width: 40rpx;
+      height: 38rpx;
+      @include bgImg("icon_b.png");
+      animation: aniB 15s linear infinite;
+    }
+
+    .icon_o {
+      position: absolute;
+      top: 356rpx;
+      left: 262rpx;
+      width: 74rpx;
+      height: 72rpx;
+      @include bgImg("icon_o.png");
+      animation: aniO 15s linear infinite;
+    }
+  }
+  .scroll_box {
+    position: relative;
+    width: 720rpx;
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 28rpx 24rpx;
+    background: #FFFFFF;
+    overflow: hidden;
+    border-radius: 40rpx 40rpx 0rpx 0rpx;
+    box-sizing: border-box;
+    .circle1 {
+      position: absolute;
+      right: -60rpx;
+      top: -60rpx;
+      width: 128rpx;
+      height: 128rpx;
+      background: #E4FFEF;
+      border-radius: 50%;
+      animation: aniCircle1 30s linear infinite;
+    }
+    .circle2 {
+      position: absolute;
+      width: 28rpx;
+      height: 28rpx;
+      background: #FFBCEF;
+      top: 90rpx;
+      right: 62rpx;
+      border-radius: 50%;
+      opacity: .5;
+      animation: aniCircle2 10s linear infinite;
+    }
+    .circle3 {
+      position: absolute;
+      width: 114rpx;
+      height: 114rpx;
+      background: #FFDC8E;
+      top: 560rpx;
+      left: -30rpx;
+      opacity: .3;
+      border-radius: 50%;
+      animation: aniCircle3 10s linear infinite;
+    }
+    .circle4 {
+      position: absolute;
+      width: 350rpx;
+      height: 350rpx;
+      background: #E2F6FF;
+      bottom: -200rpx;
+      right: -100rpx;
+      border-radius: 50%;
+      animation: aniCircle4 15s linear infinite;
+    }
+    .scroll_child {
+      position: relative;
+      height: 100%;
+      overflow: scroll;
+      box-sizing: border-box;
+    }
+  }
+  .talk_role {
+    position: relative;
+    height: 220rpx;
+    margin: 0 auto;
+    box-sizing: border-box;
+    .role_title {
+      width: 224rpx;
+      height: 52rpx;
+      padding-left: 10rpx;
+      font-size: 36rpx;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      @include bgImg("text_2.png");
+      overflow: hidden;
+    }
+  }
+  .role_list {
+    position: relative;
+    top: -120rpx;
+    width: 670rpx;
+    margin: 0 auto;
+    margin-bottom: -120rpx;
+    .role_item {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 240rpx;
+      margin-bottom: 25rpx;
+      padding: 25rpx 26rpx;
+      background: #E2EDFB;
+      box-shadow: inset 0rpx -6rpx 0rpx 0rpx #C2D3E9;
+      border-radius: 20rpx;
+      box-sizing: border-box;
+      &.role-hover {
+        box-shadow: none;
+        transform: translateY(6rpx);
+      }
+
+      .svip-label {
+        position: absolute;
+        right: 0;
+        top: -10rpx;
+        width: 116rpx;
+        height: 72rpx;
+        @include bgImg("label-svip.png");
+      }
+
+      .role_portrait {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200rpx;
+        height: 100%;
+        .role_img{
+          width: 178rpx;
+          height: 204rpx;
+        }
+      }
+
+      .role_main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 440rpx;
+        height: 110%;
+        position: relative;
+        top: -5%;
+        .role_name {
+          font-size: 30rpx;
+          color: #333333;
+          line-height: 34rpx;
+        }
+        .role_tags {
+          display: flex;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          .tag{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 36rpx;
+            padding: 0 16rpx;
+            margin-right: 12rpx;
+            background: #000000;
+            color: #FFFFFF;
+            border-radius: 8rpx;
+            font-size: 24rpx;
+            margin-bottom: 10rpx;
+          }
+        }
+        .role_desc{
+          font-weight: 400;
+          color: #515151;
+          line-height: 34rpx;
+          font-size: 24rpx;
+        }
+      }
+    }
+  }
+  .role_more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 240rpx;
+    height: 60rpx;
+    margin: 0 auto;
+    margin-top: 22rpx;
+    background: #02D827;
+    box-shadow: inset 0rpx -6rpx 0rpx 0rpx #01C256;
+    border-radius: 20rpx;
+    color: #fff;
+    &.more-hover {
+      box-shadow: none;
+      transform: translateY(6rpx);
+    }
+  }
+  .talk_scene {
+    .scene_title {
+      width: 224rpx;
+      height: 52rpx;
+      padding-left: 10rpx;
+      margin-bottom: 50rpx;
+      font-size: 36rpx;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      @include bgImg("text_3.png");
+      overflow: hidden;
+    }
+    .scene_list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20rpx;
+      .scene_item {
+        position: relative;
+        width: 330rpx;
+        height: 330rpx;
+        color: #fff;
+        font-size: 32rpx;
+        padding: 38rpx 32rpx;
+        margin-bottom: 15rpx;
+        &_0{
+          @include bgImg("scene_1.png");
+          box-shadow: inset 0rpx -8rpx 0rpx 0rpx #3C9BAC;
+          border-radius: 20rpx;
+        }
+        &_1{
+          @include bgImg("scene_2.png");
+          box-shadow: inset 0rpx -8rpx 0rpx 0rpx #2D76BC;
+          border-radius: 20rpx;
+        }
+        &_2{
+          @include bgImg("scene_3.png");
+          box-shadow: inset 0rpx -8rpx 0rpx 0rpx #B7654C;
+          border-radius: 20rpx;
+        }
+        &_3{
+          @include bgImg("scene_4.png");
+          box-shadow: inset 0rpx -8rpx 0rpx 0rpx #795AC5;
+          border-radius: 20rpx;
+        }
+        &.scene-hover {
+          box-shadow: none;
+          transform: translateY(6rpx);
+        }
+        .scene_img {
+          position: absolute;
+          left: 0%;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        }
+        .scene_level, .scene_name {
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes aniA {
+  0% {
+    transform: translate(0rpx, 0rpx);
+  }
+  25%{
+    transform: translate(30rpx, 30rpx);
+  }
+  50% {
+    transform: translate(0rpx, 0rpx);
+  }
+  75% {
+    transform: translate(-30rpx, -30rpx);
+  }
+  100% {
+    transform: translate(0rpx, 0rpx);
+  }
+}
+
+@keyframes aniB {
+  0% {
+    transform: translate(0rpx, 0rpx);
+  }
+  50%{
+    transform: translate(-30rpx, 30rpx);
+  }
+  100% {
+    transform: translate(0rpx, 0rpx);
+  }
+}
+
+@keyframes aniO {
+  0% {
+    transform: translate(0rpx, 0rpx);
+  }
+  50%{
+    transform: translate(-30rpx, 0rpx);
+  }
+  100% {
+    transform: translate(0rpx, 0rpx);
+  }
+}
+
+@keyframes aniCircle1 {
+  0% {
+    transform: translate(0rpx, 0rpx);
+  }
+  50%{
+    transform: translate(-330rpx, 400rpx);
+  }
+  100%{
+    transform: translate(0rpx, 0rpx);
+  }
+}
+
+@keyframes aniCircle2 {
+  0% {
+    transform: translate(0rpx, 0rpx);
+  }
+  50%{
+    transform: translate(-40rpx, -60rpx);
+  }
+  100%{
+    transform: translate(0rpx, 0rpx);
+  }
+}
+
+@keyframes aniCircle3 {
+  0% {
+    transform: translate(0rpx, 0rpx);
+  }
+  50%{
+    transform: translate(100rpx, -100rpx);
+  }
+  100%{
+    transform: translate(0rpx, 0rpx);
+  }
+}
+
+@keyframes aniCircle4 {
+  0% {
+    transform: translate(0rpx, 0rpx);
+  }
+  50%{
+    transform: translate(-200rpx, -100rpx);
+  }
+  100%{
+    transform: translate(0rpx, 0rpx);
+  }
+}

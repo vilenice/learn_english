@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "selfHeader": "../../components/self-header/index",
+    "dialogBox": "../../components/dialogBox/dialogBox",
+    "bottomBox": "../../components/bottom-box/bottom-box",
+    "submitBox": "../../components/submit-box/submit-box",
+    "loading": "../../components/loading/loading",
+    "popRenew": "../../components/pop_renew/pop_renew"
+  }
+}

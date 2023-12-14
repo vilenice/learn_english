@@ -1,0 +1,6 @@
+<view class="mask-box">
+    <view class="mask"></view>
+    <view class="mask-slot">
+        <slot></slot>
+    </view>
+</view>

@@ -1,0 +1,59 @@
+<view class="dialogue-box {{showType === 'role'? 'role' : 'scene'}}">
+    <selfHeader pageType='{{2}}' titleName="{{sceneName}}" />
+    <view class="dialogue-head">
+        <image class="role" src="{{roleImg}}" />
+    </view>
+    <view class="dialogue-main">
+        <view class="main-hd">
+            <view class="hd-left">
+                <view class="hd-role-box">
+                    <image class="hd-role-box-img" mode="widthFix" src="{{roleImg}}" />
+                </view>
+                <text>{{roleName}}</text>
+            </view>
+            <view class="hd-right" bindtap="changeSubject">
+            </view>
+        </view>
+        <view class="main-detail">
+            <scroll-view  class="dialogueBox-wrap"
+                id="scroll-content"
+                scroll-y="true"
+                show-scrollbar="{{false}}" 
+                enhanced="{{true}}"
+                scroll-into-view="translate-{{toView}}"
+                enable-back-to-top="true"
+                refresher-enabled="{{true}}"
+                refresher-triggered="{{isRefresh}}"
+                bindrefresherrefresh="scrollTop"
+                scroll-with-animation="true">
+                <dialogBox wx:for="{{dialogList}}" 
+                    class="dialogBox-item"
+                    wx:key="id"
+                    dialogItem="{{item}}" 
+                    bindplayVoice="playVoice"
+                    style="justify-content: {{item.type === 'user' ? 'flex-end' : 'flex-start'}}"></dialogBox>
+                <view class="teach" bindtap="teach">
+                    <view class="icon-teach"></view>
+                    <text>教我回答</text>
+                </view>
+                <view id="translate-fake"></view>
+            </scroll-view>
+        </view>
+    </view>
+    <bottomBox
+        class="{{!isLoadEnd ? 'unLoadEnd' : ''}}"
+         wx:if="{{!isSubmit}}" 
+        isTeach="{{isTeach}}"
+        isLoadEnd="{{isLoadEnd}}"
+        bindbottomFocus="bottomFocus"
+        bindbottomStart="bottomFocus"
+        bindteachClose="teachClose"
+        answerData="{{answerData}}"
+        bindtranslate="textTranslate" />
+    <submitBox wx:else 
+        bindsubmitCancel="submitCancel"
+        bindsubmitEnter="submitEnter"
+        resultText="{{resultText}}" />
+    <popRenew wx:if="{{showRenew}}" renewType="{{renewType}}" />
+    <!-- <popRenewSuccess /> -->
+</view>

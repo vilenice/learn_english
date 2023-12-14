@@ -1,0 +1,41 @@
+@import '../../app';
+
+.renew-box {
+    width: 602rpx;
+    height: 504rpx;
+    padding: 230rpx 0 0;
+    @include bgImg("pop_renew.png");
+    .btn-enter,.btn-svip {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 270rpx;
+        height: 80rpx;
+        margin-top: 20rpx;
+        font-weight: 500;
+        color: #FCEED5;
+        @include bgImg("pop_renew_enter.png");
+    }
+
+    .btn-svip {
+        width: 320rpx;
+        height: 80rpx;
+        font-size: 28rpx;
+        @include bgImg("btn_svip.png");
+
+    }
+    .renew-detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .renew-text {
+            font-size: 28rpx;
+            color: #41414F;
+            margin-bottom: 20rpx;
+            .bold {
+                color: #D67A2E;
+                font-weight: 600;
+            }
+        }
+    }
+}

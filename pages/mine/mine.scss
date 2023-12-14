@@ -1,0 +1,134 @@
+@import "../../app";
+
+view{
+    box-sizing: border-box;
+}
+
+.mine-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    @include bgImg("mine_bg.png");
+    background-position: top center;
+    background-size: 100%;
+    padding-top: 206rpx;
+    .mine-info {
+        display: flex;
+        align-items: center;
+        width: 690rpx;
+        height: 196rpx;
+        padding: 0 50rpx;
+        // @include bgImg('mine_info_bg.png');
+        // box-shadow: inset 0rpx -6rpx 0rpx 0rpx #0075D9;
+        // border-radius: 15rpx;
+        .mine-hd {
+            width: 120rpx;
+            height: 120rpx;
+            margin-right: 22rpx;
+            border-radius: 50%;
+            border: 2rpx solid black;
+            overflow: hidden;
+            .img-user-header{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .mine-detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 120rpx;
+            padding: 10rpx 0;
+            color: #333333;
+            .mine-name {
+                display: flex;
+                align-items: center;
+                font-size: 36rpx;
+                .icon-vip {
+                    width: 66rpx;
+                    height: 32rpx;
+                    margin-left: 10rpx;
+                    @include bgImg('icon-vip.png');
+                }
+                .icon-svip {
+                    width: 72rpx;
+                    height: 32rpx;
+                    margin-left: 10rpx;
+                    @include bgImg('icon-svip.png');
+                }
+            }
+            .mine-day {
+                font-size: 28rpx;
+                color: #555555;
+            }
+        }
+    }
+    .vip-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 690rpx;
+        height: 288rpx;
+        padding: 40rpx 36rpx;
+        @include bgImg('vip_bg.png');
+        .vip-header {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            .vip-text {
+                display: flex;
+                flex-direction: column;
+                color: #BEC2C9;
+                font-size: 22rpx;
+                .vip-text-title {
+                    font-size: 30rpx;
+                    margin-bottom: 10rpx;
+                    color: #FFFFFF;
+                }
+            }
+            .btn-buy {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 166rpx;
+                height: 68rpx;
+                font-size: 24rpx;
+                font-weight: 600;
+                @include bgImg('icon-buy.png');
+            }
+        }
+        .vip-time {
+            font-size: 20rpx;
+            color: #BEC2C9;
+        }
+    }
+    .mine-invite, .mine-relation, .mine-recommended {
+        display: flex;
+        align-items: center;
+        width: 690rpx;
+        height: 120rpx;
+        margin-top: 24rpx;
+        padding-left: 66rpx;
+        box-shadow: inset 0rpx -6rpx 0rpx 0rpx #11A96C;
+        border-radius: 15rpx;
+        font-size: 30rpx;
+        font-weight: 600;
+        color: #FFFFFF;
+        line-height: 42rpx;
+        box-sizing: border-box
+    }
+    .mine-invite {
+        @include bgImg('mine_invite_bg.png');
+    }
+    .mine-relation {
+        @include bgImg('mine_invite_link.png');
+    }
+    .mine-recommended {
+        @include bgImg('mine-recommended.png');
+    }
+}

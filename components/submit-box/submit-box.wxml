@@ -1,0 +1,18 @@
+<view class="submit-box on">
+    <view class="head">
+        <view class="loading-box" wx:if="{{!resultText}}">
+           <loading loadingText="转化中" />
+        </view>
+        <view class="resultText" wx:else >{{resultText}}</view>
+    </view>
+    <view class="btn-list">
+        <view class="cancel" bindtap="cancel" hover-class="btn-hover">
+            <view class="icon-cancel"></view>
+            <view class="text-cancel">取消</view>
+        </view>
+        <view class="submit" bindtap="submit" hover-class="btn-hover">
+            <view class="icon-submit"></view>
+            <view class="text-submit">发送</view>
+        </view>
+    </view>
+</view>

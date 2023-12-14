@@ -1,0 +1,35 @@
+$heights: 8, 9, 10, 27, 16, 11,16,43,21,11,27,11,16,11,27,16,11,16,43,16,11,16,27,10,9,8;
+
+.item-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 380rpx;
+    height: 45rpx;
+}
+@for $i from 1 through length($heights) {
+    .item-box .item-box-#{$i} {
+        width: 5rpx;
+        height: #{nth($heights, $i)}rpx;
+        animation: speakAni-#{$i} 1s ease infinite;
+        background: white;
+        border-radius: 3rpx;
+    }
+}
+
+@for $i from 1 through length($heights) {
+    @keyframes speakAni-#{$i} {
+        0% {
+            height: #{nth($heights, $i)}rpx;
+        }
+        #{(50 - nth($heights, $i))*1%} {
+            height: #{nth($heights, $i) +10}rpx;
+        }
+        #{(100 - nth($heights, $i))*1%} {
+            height: 0rpx;
+        }
+        100%{
+            height: #{nth($heights, $i)}rpx;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+/**app.wxss**/
+page {
+  height: 100%;
+  font-family: "ArialFont";
+}
+
+view {
+  box-sizing: border-box;
+}
+
+.submit-box {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  width: 100%;
+  height: 224rpx;
+  padding: 40rpx 28rpx;
+  padding-top: 40rpx;
+  background: #fff;
+  transition: all 1s ease;
+  box-shadow: 10rpx 0rpx 18rpx 12rpx rgba(0, 0, 0, 0.18);
+}
+.submit-box.on {
+  height: auto;
+  background: linear-gradient(180deg, #E7F4FF 0%, #F6FAFD 100%);
+}
+.submit-box .head {
+  display: flex;
+  width: 100%;
+  height: auto;
+  align-items: center;
+}
+.submit-box .btn-list {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+.submit-box .btn-list .cancel, .submit-box .btn-list .submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 334rpx;
+  height: 112rpx;
+  background: #355377;
+  box-shadow: 0rpx 6rpx 0rpx 0rpx #1E2C3C;
+  border-radius: 16rpx;
+  color: #fff;
+}
+.submit-box .btn-list .cancel.btn-hover, .submit-box .btn-list .submit.btn-hover {
+  box-shadow: none;
+  transform: translateY(6rpx);
+}
+.submit-box .btn-list .cancel .icon-cancel, .submit-box .btn-list .submit .icon-cancel {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+  background: rgba(0, 0, 0, 0) url("http://172.20.100.25:1234/imgs/cancel.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.submit-box .btn-list .cancel .icon-submit, .submit-box .btn-list .submit .icon-submit {
+  width: 42rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+  background: rgba(0, 0, 0, 0) url("http://172.20.100.25:1234/imgs/submit.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.submit-box .btn-list .submit {
+  background: #00D826;
+  box-shadow: 0rpx 6rpx 0rpx 0rpx #00B820;
+}/*# sourceMappingURL=submit-box.css.map */

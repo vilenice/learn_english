@@ -1,0 +1,6 @@
+<view class="speak-button"  wx:if="{{clickType === 1}}">
+    <text class="status2-hint">{{isCancel ? '松手取消' : '松手发送，上移取消'}}</text>
+    <view class="speak">
+        <speakItem />
+    </view>
+</view>

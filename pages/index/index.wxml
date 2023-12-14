@@ -1,0 +1,74 @@
+<!-- index.wxml -->
+<view class="container">
+  <selfHeader titleName="学霸AI口语" />
+  <view class="head">
+    <view class="girl"></view>
+    <view class="lighthouse"></view>
+    <view class="icon_talk"></view>
+    <view class="head_main">
+      <view class="img_title"></view>
+      <view class="head_hint">
+        <text>Speak with ease, break free from mute English.</text>
+      </view>
+    </view>
+    <view class="icon_a"></view>
+    <view class="icon_b"></view>
+    <view class="icon_o"></view>
+  </view>
+  <view class="scroll_box">
+    <view class="circle1"></view>
+    <view class="circle2"></view>
+    <view class="circle3"></view>
+    <view class="circle4"></view>
+    <scroll-view class="scroll_child" show-scrollbar="{{false}}" enhanced="{{true}}" 	scroll-y="{{true}}">
+      <view class="talk_role">
+        <view class="role_title">与TA对话</view>
+      </view>
+      <view class="role_list">
+        <view class="role_item" wx:for="{{roleList}}" 
+          wx:key="index"
+          data-img="{{item.avatar}}" 
+          hover-class="role-hover" 
+          data-id="{{item.id}}"
+          bindtap="roleToDialog">
+          <view class="svip-label" wx:if="{{item.svip}}"></view>
+          <view class="role_portrait">
+            <image class="role_img" src="{{item.avatar}}" alt="" />
+          </view>
+          <view class="role_main">
+            <view class="role_name">
+              <text>{{item.name}}</text>
+            </view>
+            <view class="role_tags">
+              <view class="tag">{{item.gender}}</view>
+              <view class="tag">{{item.age}}</view>
+              <view class="tag">{{item.country}}</view>
+              <view class="tag">{{item.career}}</view>
+            </view>
+            <view class="role_desc">
+              <text style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" max-lines="{{2}}">{{item.description}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="role_more" hover-class="more-hover">查看更多</view> -->
+      <view class="talk_scene">
+        <view class="scene_title">随便聊聊</view>
+        <view class="scene_list">
+          <view class="scene_item scene_item_{{index}}" wx:for="{{sceneList}}" style="background-image: url({{item.avatar}})" 
+            data-desc="{{item.description || item.name}}" 
+            data-id="{{item.id}}"
+            wx:key="index"
+            hover-class="scene-hover" bindtap="sceneToDialog">
+            <view class="scene_name">
+              <text>{{item.name}}</text>
+            </view>
+            <view class="scene_level">
+              <text>{{item.style}}</text>
+            </view>
+          </view>
+        </view>
+      </view> 
+    </scroll-view>
+  </view>
+</view>

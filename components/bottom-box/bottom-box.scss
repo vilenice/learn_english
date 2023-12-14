@@ -1,0 +1,283 @@
+@import '../../app';
+
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+.bottom-box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 10rpx 0rpx 18rpx 12rpx rgba(0, 0, 0, 0.05);
+    &.box1 {
+        padding-top: 70rpx;
+        height: 250rpx;
+    }
+    &.teach {
+        border-radius: 40rpx 40rpx 0 0;
+    }
+    .teach-box {
+        padding-top: 150rpx;
+        .teach-hd {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 242rpx;
+            padding: 30rpx;
+            z-index: 0;
+            @include bgImg('teach_bg.png');
+            .teach-title {
+                position: absolute;
+                top: 46rpx;
+                left: 32rpx;
+                width: 174rpx;
+                height: 58rpx;
+                @include bgImg('teach_title.png');
+            }
+
+            .teach-desc {
+                position: absolute;
+                top: 140rpx;
+            }
+        }
+        .teach-main {
+            position: relative;
+            padding: 0 30rpx;
+            color: #333333;
+            line-height: 42rpx;
+            font-size: 28rpx;
+            .teach-icon {
+                display: flex;
+                align-items: center;
+                height: 34rpx;
+                width: 60rpx;
+                justify-content: flex-start;
+                margin-top: 20rpx;
+                .teach-icon-item0{
+                    width: 22rpx;
+                    height: 34rpx;
+                    @include bgImg('horn1.png');
+                    margin-right: 10rpx;
+                }
+                .teach-icon-item1 {
+                    width: 8rpx;
+                    height: 18rpx;
+                    @include bgImg('horn2.png');
+                    margin-right: 10rpx;
+                }
+                .teach-icon-item2 {
+                    width: 12rpx;
+                    height: 34rpx;
+                    @include bgImg('horn3.png');
+                }
+            }
+        }
+        .icon-close {
+            position: absolute;
+            top: -80rpx;
+            right: 20rpx;
+            width: 60rpx;
+            height: 60rpx;
+            @include bgImg('icon_close.png');
+        }
+    }
+
+    .btn-box {
+        position: relative;
+        display: flex;
+        height: 224rpx;
+        justify-content: space-between;
+        padding:  40rpx 28rpx;
+        padding-top: 40rpx;
+        &.foucus {
+            .button-item{
+                width: 0;
+                padding: 0;
+            }
+            .input-container{
+                width: 690rpx;
+            }
+        }
+    }
+
+    .input-container {
+        width: 184rpx;
+        height: 112rpx;
+        flex-shrink: 0;
+        background: #C9E9FE;
+        padding: 0 32rpx;
+        box-shadow: 0rpx 6rpx 0rpx 0rpx #AECADD;
+        border-radius: 16rpx;
+        transition: width 1s ease;
+        &.un{
+            padding: 0;
+            animation: inputHidden .2s ease forwards;
+        }
+        .input-text {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .button-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 486rpx;
+        height: 112rpx;
+        background: #00D826;
+        box-shadow: 0rpx 6rpx 0rpx 0rpx #00B820;
+        border-radius: 16rpx;
+        color: #fff;
+        font-size: 30rpx;
+        font-weight: bold;
+        box-sizing: border-box;
+        overflow: inherit;
+        &.on {
+            width: 690rpx;
+            transition: width 1s ease;
+        }
+
+        &.red{
+            background: #FF3232;
+            box-shadow: 0rpx 6rpx 0rpx 0rpx #DF0202;
+            .btn-status2 {
+                .status2-hint {
+                    color: #FF3232;
+                }
+            }
+        }
+        .btn-status1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            .icon-voice {
+                width: 40rpx;
+                height: 40rpx;
+                margin-right: 14rpx;
+                @include bgImg("icon_voice.png");
+            }
+        }
+
+        .btn-status2 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            .status2-hint {
+                position: absolute;
+                top: -60rpx;
+                left: 50%;
+                width: 100%;
+                text-align: center;
+                transform: translateX(-50%);
+                font-size: 28rpx;
+                color: #797979;
+                font-weight: 400;
+            }
+            .speak {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
+.loading-zone {
+    display: flex;
+    align-items: flex-end;
+    width: 200rpx;
+    height: 60rpx;
+    padding: 0rpx 0rpx 10rpx 20rpx;
+    margin-bottom: 36rpx;
+    transition: all 1s ease;
+    overflow: hidden;
+    &.check-loading {
+        background: none;
+        margin-bottom: 0;
+    }
+    &.check-loading.loading-user{
+        .dot {
+            background: #fff;
+        }
+    }
+    &.ai {
+        background: #E7F4FF;
+        border-radius: 0rpx 28rpx 28rpx 28rpx;
+        box-shadow: 0rpx 6rpx 0rpx 0rpx #C2D3E9;
+        
+    }
+
+    &.user{
+        background: #38659C;
+        border-radius: 28rpx 0rpx 28rpx 28rpx;
+        box-shadow: 0rpx 6rpx 0rpx 0rpx #294B75;
+        overflow: hidden;
+        .dot{
+            background: #fff;
+        }
+    }
+    
+    .dot-box {
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 15rpx;
+        margin-left: 10rpx;
+    }
+    
+    .dot{
+        width: 10rpx;
+        height: 10rpx;
+        background: black;
+        margin-right: 5rpx;
+        border-radius: 50%;
+        animation: bounce 1s infinite;
+    }
+    
+    .dot1 {
+        animation-delay: 0;
+    }
+    
+    .dot2 {
+        animation-delay: .2s;
+    }
+    
+    .dot1 {
+        animation-delay: .4s;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10rpx);
+    }
+    100% {
+        transform: translateY(0rpx);
+    }
+}
+
+@keyframes inputHidden {
+    0%{
+        width: 184rpx;
+        opacity: 1;
+        
+    }
+    100%{
+        opacity: 0;
+        width: 0rpx;
+    }
+}

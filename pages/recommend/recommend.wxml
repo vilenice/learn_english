@@ -1,0 +1,27 @@
+<view class="recommend-box">
+    <selfHeader pageType="{{2}}" />
+    <view class="recommend-title"><text>「摆脱哑巴英语，共同迈向口语达人之路」</text></view>
+    <button class="recommend-btn-share" open-type="share">微信分享好友</button>
+    <view class="recommend-desc">
+        <view class="desc-item">
+            <text class="desc-item-title">邀请奖励</text>
+            <text class="desc-item-value"><text class="desc-item-num">{{inviteInfo.register_duration}}</text>小时</text>
+        </view>
+        <view class="line"></view>
+        <view class="desc-item">
+            <text class="desc-item-title">购买返利</text>
+            <text class="desc-item-value"><text class="desc-item-num">{{inviteInfo.buy_duration}}</text>小时</text>
+        </view>
+        <view class="line"></view>
+        <view class="desc-item">
+            <text class="desc-item-title">累计获得</text>
+            <text class="desc-item-value"><text class="desc-item-num">{{inviteInfo.total_duration}}</text>小时</text>
+        </view>
+    </view>
+    <view class="recommend-rule">
+        <view class="rule-title">奖励规则</view>
+        <view class="rule-detail"><text class="rule-p">邀请奖励：</text>好友通过您的分享链接注册成功，您将获得<text class="rule-num">6</text> 小 时会员服务（奖励延迟3分钟），最高可累积至5天。您的好友也将得到<text class="rule-num">1</text>小时VIP服务体验。</view>
+        <view class="rule-detail"><text class="rule-p">购买返利：</text>若好友通过您的链接购买任意会员，您可获得相当于<text class="rule-num">6%</text>购买时间VIP时常奖励(无上限，奖励延迟3分钟，iOS暂不支持)。</view>
+        <view class="rule-detail">邀请奖励与购买返利获得的VIP会员时间，将会直接增加到您现有会员期限上。</view>
+    </view>
+</view>

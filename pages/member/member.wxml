@@ -1,0 +1,64 @@
+<view class="member-box">
+    <selfHeader titleName="开通会员" pageType="2" />
+    <view class="header">
+        <view class="member-title">
+            <text>学霸AI口语会员</text>
+        </view>
+        <view class="member-desc">
+            <text>成为会员，尊享定制特权👀</text>
+        </view>
+    </view>
+    <view class="member-content">
+        <view class="content-bg"></view>
+        <view class="svip-box">
+            <view class="svip-title"></view>
+            <view class="member_svip">
+                <view class="desc-box">
+                    <text class="desc-title">365天</text>
+                    <text class="svip_desc">即享<text class="svip-sale">70%</text>折扣,尊享星光音色,每周4000字符与星共语。</text>
+                </view>
+                <view class="btn-svip" data-id="{{4}}" bindtap="generateOrderFn" wx:if="{{platform === 'android'}}">立即开通</view>
+                <button class="btn-svip" open-type="contact" bindcontact="handleContact" wx:else>联系客服</button>
+            </view>
+            <view class="member-vip">
+                <view class="vip-title"><text>VIP套餐选择</text></view>
+                <view class="vip-list">
+                    <view class="vip-item {{selectType === item.id ? 'active' : ''}}" wx:for="{{memberVip}}" wx:key="id" bindtap="chooseVip" data-id="{{item.id}}">
+                        <view class="vip-day">{{item.day}}天</view>
+                        <view class="old-price">原价¥{{item.oldPrice}}</view>
+                        <view class="new-price">¥{{item.newPrice}}</view>
+                        <view class="vip-recommend" wx:if="{{item.id === 3}}"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="member-equity">
+                <view class="equity-title"><text>会员权益</text></view>
+                <view class="equity-detail"></view>
+            </view>
+            <view class="vip-more">
+                <view class="more-title"><text>✨更多vip功能，敬请期待…</text></view>
+                <view class="more-detail"></view>
+            </view>
+            <view class="vip-hint">
+                <text>温馨提示： </text>
+                <text>1. 免费时间达到上限后，需升级为会员方可继续使用。</text> 
+                <text>2. 与明星角色（Star）对话每周上限4000字符（周一重置）。</text>
+                <text>3. 虚拟产品一经购买不支持退款。</text>
+                <text>4. 多次购买套餐，将会延长剩余时间。</text>
+                <text>5. 若有其他问题，请点击 <text class="link">联系客服</text> 解决。</text>
+            </view>
+            <view class="member-btn"></view>
+        </view>
+        <view class="pay-box">
+            <view class="btn-pay" hover-class="pay-hover" bindtap="generateOrderFn" wx:if="{{platform === 'android'}}">
+                <text>支付{{payNum}}元 开通会员</text>
+            </view>
+            <button class="btn-pay" open-type="contact" bindcontact="handleContact" wx:else>
+                <!-- <text>联系客服</text> -->
+                 <text>iOS不支持充值，点击联系客服</text>
+            </button>
+            <text class="agreement">点击购买即为同意《隐私协议》和《使用条款》</text>
+        </view>
+    </view>
+    <popRenewSuccess class="pop-success" wx:if="{{isSuccess}}" bindclose="closeSuccess" />
+</view>

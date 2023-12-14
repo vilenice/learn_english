@@ -1,0 +1,49 @@
+{
+  "pages":[
+ 
+    "pages/index/index",
+    "pages/recommend/recommend",
+    "pages/member/member",
+    "pages/mine/mine",
+    
+    "pages/dialogue/dialogue",
+    "pages/login/login",
+    "pages/user-info/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "color": "#808080",
+    "selectedColor": "#0387FA",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/imgs/icon_home1.png",
+        "selectedIconPath": "/imgs/icon_home2.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/imgs/icon_my2.png",
+        "selectedIconPath": "/imgs/icon_my1.png"
+      }
+    ]
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.3",
+      "provider": "wx069ba97219f66d99"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

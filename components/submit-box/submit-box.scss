@@ -1,0 +1,100 @@
+@import '../../app';
+
+// $heights: 12, 30, 12;
+
+.submit-box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    width: 100%;
+    height: 224rpx;
+    padding:  40rpx 28rpx;
+    padding-top: 40rpx;
+    background: #fff;
+    transition: all 1s ease;
+    box-shadow: 10rpx 0rpx 18rpx 12rpx rgba(0, 0, 0, 0.18);
+    &.on {
+        height: auto;
+        background: linear-gradient(180deg, #E7F4FF 0%, #F6FAFD 100%);
+    }
+    .head {
+        display: flex;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        // .loading-box {
+        //     display: flex;
+        // }
+        // .loading{
+        //     width: 40rpx;
+        //     display: flex;
+        //     align-items: center;
+        //     margin-right: 20rpx;
+        //     justify-content: space-around;
+        //     @for $i from 1 through length($heights) {
+        //         .loading-item-#{$i}{
+        //             width: 5rpx;
+        //             height: #{nth($heights, $i)}rpx;
+        //             animation: loading-#{$i} 1s ease infinite;
+        //             background: #0088FF;
+        //             border-radius: 3rpx;
+        //         }
+        //     }
+        // }
+    }
+    .btn-list {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 40rpx;
+        .cancel,.submit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 334rpx;
+            height: 112rpx;
+            background: #355377;
+            box-shadow: 0rpx 6rpx 0rpx 0rpx #1E2C3C;
+            border-radius: 16rpx;
+            color: #fff;
+            &.btn-hover{
+                box-shadow: none;
+                transform: translateY(6rpx);
+            }
+            .icon-cancel{
+                width: 40rpx;
+                height: 40rpx;
+                margin-right: 12rpx;
+                @include bgImg('cancel.png');
+            }
+            .icon-submit {
+                width: 42rpx;
+                height: 40rpx;
+                margin-right: 12rpx;
+                @include bgImg('submit.png');
+            }
+        }
+        .submit {
+            background: #00D826;
+            box-shadow: 0rpx 6rpx 0rpx 0rpx #00B820;
+        }
+    }
+}
+
+// @for $i from 1 through length($heights) {
+//     @keyframes loading-#{$i} {
+//         0% {
+//             height: #{nth($heights, $i)}rpx;
+//         }
+//         #{(50 - nth($heights, $i))*1%} {
+//             height: 30rpx;
+//         }
+//         #{(100 - nth($heights, $i))*1%} {
+//             height: 10rpx;
+//         }
+//         100% {
+//             height: #{nth($heights, $i)}rpx;
+//         }
+//     }
+// }

@@ -1,0 +1,15 @@
+<popDefault>
+    <view class="renew-box">
+        <view  class="renew-detail">
+            <view class="renew-text" wx:if="{{renewType === 'svip'}}">成为<text class="bold">SVIP</text>会员，解锁星光音色特权</view>
+            <text class="renew-text" wx:if="{{renewType === 'vip'}}">VIP光环暂别，口语练习不停！</text>
+             <text class="renew-text" wx:if="{{renewType === 'confine'}}">星光音色已落幕，明星稍作休息</text>
+            <text class="renew-text" wx:if="{{renewType === 'svip'}}"> 畅享AI口语提升之旅！ </text>
+            <text class="renew-text" wx:if="{{renewType === 'vip'}}"> 即刻续费，让学霸之门再度敞开！</text>
+            <text class="renew-text" wx:if="{{renewType === 'confine'}}"> 期待下周再续精彩！</text>
+            <view class="btn-enter" wx:if="{{renewType === 'vip'}}" bindtap="toMember">好的</view>
+            <view class="btn-svip" wx:if="{{renewType === 'svip'}}" bindtap="toMember">开通SVIP会员</view>
+            <view class="btn-svip" wx:if="{{renewType === 'confine'}}" bindtap="backHome">返回首页</view>
+        </view>
+    </view>
+</popDefault>

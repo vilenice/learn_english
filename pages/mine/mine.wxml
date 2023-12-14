@@ -1,0 +1,37 @@
+<view class="mine-box">
+    <!-- <selfHeader pageType="{{2}}" /> -->
+    <view class="mine-info">
+        <view class="mine-hd" bindtap="changeAvatar">
+            <image src="{{ userInfo && userInfo.avatarUrl }}" class="img-user-header"></image>
+        </view>
+        <view class="mine-detail">
+            <view class="mine-name">
+                <text>{{userInfo.nickName}}</text>
+                <view class="icon-vip" wx:if="{{userInfo.vip_status == 1}}">
+                </view>
+                <view class="icon-svip" wx:if="{{userInfo.svip_status == 1}}"></view>
+            </view>
+            <view class="mine-day"> <text>一起学习第{{userInfo.study_days}}天</text> </view>
+        </view>
+    </view>
+    <view class="vip-box">
+        <view class="vip-header">
+            <view class="vip-text">
+                <text class="vip-text-title">学霸AI口语会员</text>
+                <text>成为会员，尊享定制特权</text>
+            </view>
+            <view class="btn-buy" bindtap="buyVip">{{(userInfo.vip_status == 1 || userInfo.svip_status == 1) ? '立即续费' : '立即购买'}} </view>
+        </view>
+        <view class="vip-time" wx:if="{{endTime}}">{{endTime}}到期</view>
+        <view class="vip-time" wx:else> 成为会员，开启流利英语之门！ </view>
+    </view>
+    <button class="mine-invite" open-type="share">
+        <!-- <text>邀请好友</text> -->
+    </button>
+    <button class="mine-relation" open-type="contact" bindcontact="handleContact">
+        <!-- <text>联系客服</text> -->
+    </button>
+    <view class="mine-recommended"  bindtap="toRecommend">
+        <!-- <text>推荐有礼</text> -->
+    </view>
+</view>

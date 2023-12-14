@@ -1,0 +1,56 @@
+<view class="mask" wx:if="{{isTeach}}"></view>
+<view class="bottom-box {{clickType === 1 && !isTeach && 'box1'}} {{isTeach && 'teach'}}">
+    <view class="teach-box" wx:if="{{isTeach}}">
+        <view class="teach-hd">
+            <view class="teach-title"></view>
+        </view>
+        <view class="teach-main">
+            <view class="teach-en" wx:if="{{answerData.content}}">{{answerData.content}}</view>
+            <view class="teach-cn" wx:if="{{answerData.translation}}">{{answerData.translation}}</view>
+            <view class="loading-zone" wx:else>
+                <div class="dot-box">
+                    <view class="dot dot1"></view>
+                    <view class="dot dot2"></view>
+                    <view class="dot dot3"></view>
+                </div>
+            </view>
+            <view class="teach-icon">
+                <view class="teach-icon-item0"></view>
+                <view class="teach-icon-item1" wx:if="{{speakNum >= 1}}"></view>
+                <view class="teach-icon-item2" wx:if="{{speakNum >= 2}}"></view>
+            </view>
+        </view>
+        <view class="icon-close" bindtap="close"></view>
+    </view>
+    <view class="btn-box {{isFocus && 'foucus'}}">
+         <view class="input-container {{clickType === 0 ? '' : 'un'}}" wx:if="{{clickType !== 2}}">
+            <input type="text" 
+                class="input-text" 
+                placeholder="输入..." 
+                disabled="{{!isLoadEnd}}"
+                value="{{inputValue}}" 
+                bindfocus="inputFocus" 
+                bindblur="inputBlur" 
+                bindinput="inputChange" 
+                bindconfirm="inputConfirm" />
+        </view>
+        <button class="button-item {{clickType === 1 && 'on'}} {{isCancel && 'red'}}"
+            wx:if="{{clickType !== 2}}" 
+            id="buttonItem" 
+            bindtouchstart="streamRecord" 
+            bindtouchmove="moveStreamRecord" 
+            bindtouchend="endStreamRecord"
+            bindtouchcancel="cancelStreamRecord">
+            <view class="btn-status1" wx:if="{{clickType === 0}}">
+                <view wx:if="{{!isFocus}}" class="icon-voice"></view>
+                <text wx:if="{{!isFocus}}" class="text-in-button {{ buttons.buttonType == 'press' ? 'text-press': '' }}">请按住说话</text>
+            </view>
+            <view class="btn-status2"  wx:if="{{clickType === 1}}">
+                <text class="status2-hint">{{isCancel ? '松手取消' : '松手发送，上移取消'}}</text>
+                <view class="speak">
+                    <speakItem />
+                </view>
+            </view>
+        </button>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+<popDefault>
+    <view class="renew_success_box">
+        <view class="renew_success_title1">
+            <text>开通成功！</text>
+        </view>
+        <view class="renew_success_detail">
+            <text class="renew_success_title2">恭喜您已开通VIP</text>
+            <text class="renew_success_title3">快去畅享专属学习旅程！</text>
+            <view class="code-box">
+                <image src="https://oss.youzu.com/y_web/a199bdf4-2206-47e0-8d9d-a03b426049d5_2023-12-08.png" class="code" alt="" />
+            </view>
+            <text class="renew_success_title4">长按二维码进入学习群</text>
+        </view>
+        <view class="renew_success_close" bindtap="close"></view>
+    </view>
+</popDefault>

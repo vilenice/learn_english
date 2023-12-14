@@ -1,0 +1,67 @@
+<view class="dialogBox-box {{dialogItem.type === 'ai' ? 'ai' : 'user'}}" 
+    wx:if="{{!dialogItem.isLoading}}"
+    id="dialogBox-box{{dialogItem.id}}" 
+    animation="{{animationData}}"
+    style="height:{{boxHeight? boxHeight : 'auto'}}">
+    <view class="original" id="original{{dialogItem.id}}">
+        <view class="functionalZone">
+            <view class="voice-box">
+                <view class="voice {{dialogItem.type === 'ai' ? 'ai' : 'user'}} {{dialogItem.original_audio ? 'original' : ''}}" bindtap="playVoice" wx:if="{{dialogItem.audioUrl}}">
+                    <view class="icon-voice">
+                        <view class="icon-voice-1"></view>
+                        <view class="icon-voice-2" wx:if="{{speakNum >= 1}}"></view>
+                        <view class="icon-voice-3" wx:if="{{speakNum >= 2}}"></view>
+                    </view>
+                    <text>{{timer}}</text>
+                </view>
+                <view class="voice_old" wx:if="{{dialogItem.original_audio}}" bindtap="playOldVoice">
+                    <view class="icon-voice">
+                        <view class="icon-voice-1"></view>
+                        <view class="icon-voice-2"></view>
+                        <view class="icon-voice-3"></view>
+                    </view>
+                    <text>AI</text>
+                </view>
+            </view>
+            <!-- <view wx:else></view> -->
+            <view class="ai-translate" wx:if="{{dialogItem.type === 'ai'}}"  data-tag="output" bindtap="translate">
+                <view class="icon-translate"></view>
+                <view class="mask" wx:if="{{showTranslate}}"></view>
+            </view>
+            <view class="user-fn" wx:else>
+                <view class="user-check" bindtap="check">
+                    <view class="icon-check"></view>
+                    <view class="mask" wx:if="{{showCheck}}"></view>
+                </view>
+                <view class="user-translate" data-tag="input" bindtap="translate">
+                    <view class="icon-translate"></view>
+                    <view class="mask" wx:if="{{showTranslate}}"></view>
+                </view>
+            </view>
+        </view>
+        <view class="text-area">
+            <text class="defaultText" user-select="true" selectable="true">{{dialogItem.output}}</text>
+            <text class="translateText" user-select="true" selectable="true" wx:if="{{translateData && showTranslate}}">{{translateData}}</text>
+        </view>
+        <view class="check-loading loading-zone {{dialogItem.type === 'ai' ? 'loading-ai' : 'loading-user'}}" wx:if="{{checkLoading || translateLoading}}">
+            <div class="dot-box">
+                <view class="dot dot1"></view>
+                <view class="dot dot2"></view>
+                <view class="dot dot3"></view>
+            </div>
+        </view>
+    </view>
+    <view class="check-box" id="check-box{{dialogItem.id}}" wx:if="{{showCheck && checkData}}">
+        <view class="line"></view>
+        <text class="check-title">以下是纠错和改进后的英文句子：</text>
+        <rich-text class="rich-text" nodes="{{checkData}}"></rich-text>
+        <view class="upward" bindtap="upward"></view>
+    </view>
+</view>
+<view class="loading-zone {{dialogItem.type === 'ai' ? 'ai' : 'user'}}" wx:if="{{dialogItem.isLoading}}">
+    <div class="dot-box">
+        <view class="dot dot1"></view>
+        <view class="dot dot2"></view>
+        <view class="dot dot3"></view>
+    </div>
+</view>

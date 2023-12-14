@@ -1,0 +1,66 @@
+@import '../../app';
+.login-box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    @include bgImg("login_bg.png");
+    background-position: top center;
+    z-index: 10;
+    .main {
+        position: absolute;
+        left: 50%;
+        top: 25%;
+        margin-left: -155rpx;
+        width: 310rpx;
+        height: 400rpx;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .logo {
+            width: 200rpx;
+            height: 200rpx;
+            @include bgImg("logo.png");
+        }
+        .title {
+            width: 258rpx;
+            height: 48rpx;
+            margin-top: 42rpx;
+            @include bgImg("title.png");
+        }
+        .hint {
+            margin-top: 36rpx;
+            font-size: 28rpx;
+            text-align: center;
+            color: #525557;
+        }
+        .btn-login {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: -300rpx;
+            width: 492rpx;
+            height: 100rpx;
+            background: #09CE66;
+            box-shadow: 0rpx 6rpx 0rpx 0rpx #09A653;
+            border-radius: 20rpx;
+            font-size: 40rpx;
+            color: #fff;
+            &.login-hover {
+                box-shadow: none;
+                bottom: -306rpx;
+            }
+        }
+
+        .cancel  {
+            position: absolute;
+            bottom: -220px;
+        }
+    }
+}

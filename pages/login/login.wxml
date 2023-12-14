@@ -1,0 +1,13 @@
+<view class="login-box">
+    <view class="main">
+        <view class="logo"></view>
+        <view class="title"></view>
+        <view class="hint">
+            <text>轻松开口，摆脱哑巴英语</text>
+        </view>
+        <button class="btn-login" hover-class="login-hover" bindtap="loginFn">
+            <text>微信登录</text>
+        </button>
+        <view class="cancel" bindtap="cancelLogin">取消</view>
+    </view>
+</view>

@@ -1,0 +1,67 @@
+@import '../../app';
+
+.renew_success_box {
+    position: relative;
+    width: 602rpx;
+    height: 892rpx;
+    padding-top: 234rpx;
+    @include bgImg('renew_success_bg.png');
+    .renew_success_detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #41414F;
+        .renew_success_title2 {
+            margin-bottom: 14rpx;
+            font-weight: 600;
+            color: #41414F;
+            font-size: 36rpx;
+            line-height: 50rpx;
+        }
+        .renew_success_title3 {
+            margin-bottom: 34rpx;
+            font-weight: 600;
+            color: #41414F;
+            line-height: 40rpx;
+            font-size: 28rpx;
+        }
+        .code-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 416rpx;
+            height: 416rpx;
+            margin-bottom: 10rpx;
+            @include bgImg('renew_success_code_box.png');
+            .code {
+                width: 85%;
+                height: 85%;
+            }
+        }
+        .renew_success_title4 {
+            font-weight: 400;
+            color: #555555;
+            line-height: 40rpx;
+            font-size: 28rpx;
+        }
+    }
+    .renew_success_title1 {
+        position: absolute;
+        left: 20rpx;
+        top: 100rpx;
+        left: 110rpx;
+        top: 104rpx;
+        font-weight: 600;
+        color: #FFFFFF;
+        font-size: 34rpx;
+    }
+    .renew_success_close {
+        position: absolute;
+        bottom: -120rpx;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 92rpx;
+        height: 92rpx;
+        @include bgImg('renew_success_close.png');
+    }
+}

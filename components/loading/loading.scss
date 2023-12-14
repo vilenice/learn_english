@@ -1,0 +1,79 @@
+$heights: 12, 30, 12;
+
+.loading-box {
+    display: flex;
+    height: 40rpx;
+}
+.loading{
+    width: 40rpx;
+    display: flex;
+    align-items: center;
+    margin-right: 20rpx;
+    justify-content: space-around;
+    @for $i from 1 through length($heights) {
+        .loading-item-#{$i}{
+            width: 5rpx;
+            height: #{nth($heights, $i)}rpx;
+            animation: loading-#{$i} 1s ease infinite;
+            background: #0088FF;
+            border-radius: 3rpx;
+        }
+    }
+}
+
+@for $i from 1 through length($heights) {
+    @keyframes loading-#{$i} {
+        0% {
+            height: #{nth($heights, $i)}rpx;
+        }
+        #{(50 - nth($heights, $i))*1%} {
+            height: 30rpx;
+        }
+        #{(100 - nth($heights, $i))*1%} {
+            height: 10rpx;
+        }
+        100% {
+            height: #{nth($heights, $i)}rpx;
+        }
+    }
+}
+
+.dot-box {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 15rpx;
+    margin-left: 10rpx;
+}
+
+.dot{
+    width: 10rpx;
+    height: 10rpx;
+    background: black;
+    margin-right: 5rpx;
+    border-radius: 50%;
+    animation: bounce 1s infinite;
+}
+
+.dot1 {
+    animation-delay: 0;
+}
+
+.dot2 {
+    animation-delay: .2s;
+}
+
+.dot1 {
+    animation-delay: .4s;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10rpx);
+    }
+    100% {
+        transform: translateY(0rpx);
+    }
+}

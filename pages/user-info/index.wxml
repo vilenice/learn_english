@@ -1,0 +1,17 @@
+<view class="user_box" style="height:{{systemInfo.screenHeight}}px;padding-top: {{navHeight + 30}}px" >
+    <self-header title-name="个人信息" pageType="2"></self-header>
+    <view class="card">
+        <view class="card-row">
+            <text>头像</text>
+            <view class="jd_box">
+                <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="chooseBack">
+                    <image  class="user_hd" src="{{userInfo && userInfo.avatarUrl}}" />
+                </button>
+            </view>
+        </view>
+        <view class="card-row no_border">
+            <text>昵称</text>
+            <input type="nickname"  class="weui-input" value="{{userInfo.nickName ? userInfo.nickName: '默认用户'}}" onchange="nameChange"/>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "disableScroll":true,
+  "usingComponents": {
+    "selfHeader": "../../components/self-header/index",
+    "popRenewSuccess": "../../components/pop_renew_success/pop_renew_success"
+  }
+}

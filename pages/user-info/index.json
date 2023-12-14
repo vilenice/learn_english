@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "self-header": "/components/self-header/index"
+  }
+}
