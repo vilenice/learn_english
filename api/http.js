@@ -1,4 +1,4 @@
-export const baseApiUrl = 'http://qa-api.longyuyin.com';
+export const baseApiUrl = 'https://api.longyuyin.com';
 
 export  const request = function(url, data, type = 'GET'){
     return new Promise((resolve, reject) => {
