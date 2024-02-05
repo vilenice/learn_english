@@ -40,6 +40,7 @@ Page({
         updateInfo({
             avatar: uploadData.data.url
         }).then((res) => {
+            console.log(res)
         })
     },
 
@@ -48,7 +49,7 @@ Page({
         const name = e.detail.value
         this.updateUserInfo({
             ...this.data.userInfo,
-            nickName: name
+            nickname: name
         })
         updateInfo({
             nickname: name

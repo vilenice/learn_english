@@ -13,6 +13,15 @@
     // background: #0387FA;
 }
 
+.icon-clean {
+    position: relative;
+    width: 48rpx;
+    height: 48rpx;
+    margin-left: 20rpx;
+    @include bgImg("icon-clean.png");
+    
+}
+
 .title{
     position: absolute;
     left: 50%;
@@ -43,4 +52,7 @@
     width: 50rpx;
     height: 50rpx;
     @include bgImg("black_back.png");
+    &.white {
+        @include bgImg("icon_back.png");
+    }
 }

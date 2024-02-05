@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "selfHeader": "../../components/self-header/index"
+    "selfHeader": "../../components/self-header/index",
+    "signIn": "../../components/signIn/signIn"
   },
   "disableScroll":true
 }

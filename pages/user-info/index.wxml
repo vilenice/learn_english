@@ -11,7 +11,7 @@
         </view>
         <view class="card-row no_border">
             <text>昵称</text>
-            <input type="nickname"  class="weui-input" value="{{userInfo.nickName ? userInfo.nickName: '默认用户'}}" onchange="nameChange"/>
+            <input type="nickname"  class="weui-input" value="{{userInfo.nickname ? userInfo.nickname: '默认用户'}}" onchange="nameChange"/>
         </view>
     </view>
 </view>

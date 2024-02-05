@@ -1,0 +1,176 @@
+@import '../../app';
+
+
+.sign-box {
+    position: relative;
+    width: 688rpx;
+    height: 308rpx;
+    margin: 0 auto;
+    margin-bottom: 20rpx;
+    @include bgImg2('8664486b-585c-4345-a0f8-af3a902b64df.png');
+    .sign-desc {
+        position: absolute;
+        display: flex;
+        top: 30rpx;
+        left: 30rpx;
+        flex-direction: column;
+        .desc1 {
+            font-size: 30rpx;
+            color: #333;
+        }
+        .desc2 {
+         font-size: 22rpx;  
+         .num {
+            color: #FF4A16;
+         } 
+        }
+    }
+    .btn-sign {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 30rpx;
+        right: 30rpx;
+        width: 166rpx;
+        height: 64rpx;
+        background: #FF7E02;
+        color: #fff;
+        box-shadow: 0rpx 4rpx 0rpx 0rpx #D46A0C;
+        border-radius: 16rpx;
+        &.btn-hover {
+            box-shadow: none;
+            transform: translateY(6rpx);
+        }
+        &.un {
+            filter: grayscale(1);
+        }
+    }
+    .reward-list {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        padding: 0 30rpx;
+        justify-content: space-around;
+        bottom: 100rpx;
+        .reward_bg {
+            width: 80%;
+            height: 12rpx;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ECE8DA;
+            border-radius: 8rpx;
+            z-index: 0;
+            .bar {
+                position: absolute;
+                left: 0;
+                width: 20%;
+                height: 100%;
+                background: linear-gradient(90deg, #FFE778 0%, #FEB237 100%);
+                border-radius: 8rpx;
+            }
+            
+        }
+        .reward_text {
+            position: absolute;
+            color: #333333;
+            font-size: 22rpx;
+            width: 50rpx;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -40rpx;
+        }
+        .reward-item {
+            z-index: 2;
+        }
+        .reward_30 {
+            width: 86rpx;
+            height: 40rpx;
+            left: 50%;
+            margin-left: -43rpx;
+            top: -60rpx;
+            position: absolute;
+            font-size: 22rpx;
+            text-align: center;
+            color: #fff;
+            @include bgImg2('6c1f4dff-0b1c-46e4-9e60-20f7dfaf5335.png');
+        }
+
+        @keyframes dance {
+            0% {
+                transform: rotate(0);
+            }
+            92%{
+                transform: rotate(0);
+            }
+
+            94% {
+                transform: rotate(10deg);
+            }
+            96% {
+                transform: rotate(-10deg);
+            }
+            98% {
+                transform: rotate(10deg);
+            }
+            100% {
+                transform: rotate(0);
+            }
+
+        }
+
+        .item {
+            position: relative;
+            width: 28rpx;
+            height: 28rpx;
+            .reward1 {
+                position: absolute;
+                width: 28rpx;
+                height: 28rpx;
+                top: 0;
+                left: 0;
+                @include bgImg2('1a659317-77a0-44ce-8224-f247e10eb296.png');
+            }
+            .reward2 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 40rpx;
+                height: 40rpx;
+                @include bgImg2('17b87d63-b5cc-4001-8955-7886a21c87e8.png');
+            }
+        }
+        .active {
+            position: relative;
+            width: 28rpx;
+            height: 28rpx;
+            .reward1 {
+                position: absolute;
+                width: 58rpx;
+                height: 54rpx;
+                bottom: -10rpx;
+                left: 50%;
+                margin-left: -29rpx;
+                @include bgImg2('e4f800f2-f3e7-4482-8594-07a7c90eaf14.png');
+                animation: dance 2s infinite ease;
+                transform-origin: center bottom;
+                
+            }
+            .reward2 {
+                position: absolute;
+                width: 58rpx;
+                height: 54rpx;
+                bottom: -10rpx;
+                left: 50%;
+                margin-left: -29rpx;
+                @include bgImg2('91d6ab0b-f27b-4d06-92e0-4933c99e0ff4.png');
+                animation: dance 2s infinite ease;
+                transform-origin: center bottom;
+
+            }
+        }
+    }
+}

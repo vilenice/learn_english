@@ -1,0 +1,26 @@
+<wxs module="m1">
+    var getinclude = function (array,text) {
+        return array.indexOf(text) !== -1
+    }
+    module.exports.getinclude = getinclude;
+</wxs>
+<view class="sign-box">
+    <view class="sign-desc">
+        <text class="desc1">签到免费领取VIP</text>
+        <text class="desc2">再签到<text class="num">{{cycle_reward[1] ? (cycle_reward[1].day - cycle_day) : 0}}</text>天，可得<text class="num">1h</text>会员</text>
+    </view>
+    <view class="btn-sign {{day_status && 'un'}}" hover-class="btn-hover" bindtap="sign">Check-in</view>
+    <view class="reward-list">
+        <view class="reward-item {{m1.getinclude(cycle_reward_day, item) ? 'active' : 'item'}}" wx:for="{{[1,2,3,4,5,6,7]}}">
+            <view class="reward2" wx:if="{{cycle_day > index}}"></view>
+            <view class="reward1" wx:else></view>
+            <text class="reward_text">{{item}}天{{test()}}</text>
+            <!-- 此处item === cycle_reward[0].day 是因为奖励时间没有通过后台返回 所以采用写死 -->
+            <view class="reward_30" wx:if="{{m1.getinclude(cycle_reward_day, item)}}">{{item === cycle_reward[0].day ? '30min' : '1hour'}}</view>
+        </view>
+        <view class="reward_bg">
+            <view class="bar" style="width:{{ (cycle_day-1) > 0 ? (cycle_day-1) : 0  * 100 / 6 + '%'}}"></view>
+        </view>
+    </view>
+</view>
+<Toast id="toast" />

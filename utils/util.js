@@ -80,8 +80,22 @@ const formatSeconds = (seconds) => {
   return minutes + ":" + remainingSeconds;
 }
 
+function debounce(fn, interval) {
+  var timer;
+  var gapTime = interval || 1000;//间隔时间，如果interval不传，则默认1000ms
+  return function() {
+    clearTimeout(timer);
+    var context = this;
+    var args = arguments;//保存此处的arguments，因为setTimeout是全局的，arguments不是防抖函数需要的。
+    timer = setTimeout(function() {
+      fn.call(context,args);
+    }, gapTime);
+  };
+}
+
 module.exports = {
   formatTime,
   dateParse,
-  formatSeconds
+  formatSeconds,
+  debounce
 }

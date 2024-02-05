@@ -6,13 +6,21 @@
         </view>
         <view class="mine-detail">
             <view class="mine-name">
-                <text>{{userInfo.nickName}}</text>
+                <text>{{userInfo.nickname}}</text>
                 <view class="icon-vip" wx:if="{{userInfo.vip_status == 1}}">
                 </view>
                 <view class="icon-svip" wx:if="{{userInfo.svip_status == 1}}"></view>
             </view>
             <view class="mine-day"> <text>一起学习第{{userInfo.study_days}}天</text> </view>
+            <view class="copy-box" bindtap="copyCode">
+                UID:{{userInfo.invitation_code}} 
+                <view class="btn-copy">
+                    <view class="box1"></view>
+                    <view class="box2"></view>
+                </view>
+            </view>
         </view>
+
     </view>
     <view class="vip-box">
         <view class="vip-header">

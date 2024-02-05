@@ -110,15 +110,18 @@ Page({
     async getLoginInfo() {
         const res = await getUserInfo()
         const info = res.data
-        console.log(info)
+        
         this.updateUserInfo({
             ...this.data.userInfo,
             ...info,
             avatarUrl: res.data.avatar || 'https://oss.gtarcade.com/ucms/2029a000-0c7d-448c-a8d4-301dba09d8ff_2023-12-13.png',
         })
-        wx.switchTab({
-            url: "/pages/index/index",
-        }); 
+        wx.nextTick(() => {
+            wx.switchTab({
+                url: "/pages/index/index",
+            }); 
+            console.log(this.data.userInfo, '---------')
+        })
     },
     cancelLogin() {
         wx.switchTab({

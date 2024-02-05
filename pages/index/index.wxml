@@ -21,11 +21,16 @@
     <view class="circle3"></view>
     <view class="circle4"></view>
     <scroll-view class="scroll_child" show-scrollbar="{{false}}" enhanced="{{true}}" 	scroll-y="{{true}}">
+      <signIn bindrefresh="getLoginInfo" />
       <view class="talk_role">
         <view class="role_title">与TA对话</view>
+        <view class="vary_box" bindtap="showSelectLang">
+          <view class="icon_vary"></view>
+          <text class="lang_text">{{lang}}</text>
+        </view>
       </view>
       <view class="role_list">
-        <view class="role_item" wx:for="{{roleList}}" 
+        <view class="role_item {{item.svip && 'svip'}}" wx:for="{{roleList}}" 
           wx:key="index"
           data-img="{{item.avatar}}" 
           hover-class="role-hover" 

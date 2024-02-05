@@ -1,0 +1,3 @@
+<view class="toast_box" wx:if="{{isShow}}">
+    {{text}}
+</view>

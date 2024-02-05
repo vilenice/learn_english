@@ -37,6 +37,11 @@ Component({
             wx.navigateBack({
                 delta: 1
             })
+        },
+        toInvite(){
+            wx.navigateTo({
+                url: '/pages/recommend/recommend',
+            })
         }
     }
 })

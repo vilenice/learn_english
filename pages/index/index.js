@@ -13,6 +13,7 @@ Page({
         baseUrl: app.globalData.baseUrl,
         roleList: [],
         sceneList: [],
+        langInfo: app.globalData.langInfo,
     },
     // 事件处理函数
 
@@ -21,8 +22,8 @@ Page({
         // 挂载store
         this.storeBindings = createStoreBindings(this, {
             store,
-            fields: ["userInfo", "navHeight", "token"],
-            actions: ["updateToken", "updateUserInfo", "login", "updateInvitationCode"],
+            fields: ["userInfo", "navHeight", "token", "lang"],
+            actions: ["updateToken", "updateUserInfo", "login", "updateInvitationCode", "updateLang"],
         });
         // 打开微信分享功能
         wx.showShareMenu({
@@ -57,11 +58,16 @@ Page({
     },
     onShow() {
         if (this.data.roleList.length === 0 || this.data.sceneList.length === 0) {
-            this.init();
+            wx.nextTick(() => {
+                this.init();
+            })
+           
         }
+       
     },
     onUnload() {
         this.storeBindings.destroyStoreBindings();
+       
     },
     checkToLogin() {
         if (!this.data.token) {
@@ -71,6 +77,25 @@ Page({
             return false;
         }
         return true;
+    },
+    // 显示选择语言
+    showSelectLang() {
+        const itemList = ['英文', '日语', '俄语', '法语', '德语', '韩语']
+        const that = this;
+        wx.showActionSheet({
+            itemList: itemList,
+            success (res) {
+              console.log(res.tapIndex)
+              that.updateLang(itemList[res.tapIndex])
+              wx.nextTick(() => {
+                  that.queryRoleList()
+              })
+
+            },
+            fail (res) {
+              console.log(res.errMsg)
+            }
+        })
     },
     roleToDialog(e) {
         if (!this.checkToLogin()) return;
@@ -112,13 +137,21 @@ Page({
     },
     async init() {
         this.getLoginInfo();
-        const rolesData = await getRoles();
+        console.log(this.data.langInfo[this.data.lang]);
+        // const rolesData = await getRoles({lang: this.data.langInfo[this.data.lang]});
+        this.queryRoleList()
         const topicsData = await getTopics();
-        const roleList = rolesData.data.list;
+        // const roleList = rolesData.data.list;
         const sceneList = topicsData.data.list;
         this.setData({
-            roleList,
+            // roleList,
             sceneList,
         });
     },
+    async queryRoleList() {
+        const rolesData = await getRoles({lang: this.data.langInfo[this.data.lang]});
+        this.setData({
+            roleList: rolesData.data.list,
+        });
+    }
 });

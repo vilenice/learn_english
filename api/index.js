@@ -155,3 +155,39 @@ export const getInviteInfo = function (data) {
         return Promise.reject(error);
     }
 }
+
+// 更新临时邀请码
+export const updateInviteCode = function (data) {
+    try {
+        return request("/v1/invitation/source-code", data, "POST");
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
+// 清除上下文
+export const clearContext = function (data) {
+    try {
+        return request("/v1/chat/clear-context", data, "POST");
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
+// 获取签到信息
+export const getSignInfo = function (data) {
+    try {
+        return request("/v1/signin/info", data);
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
+// 签到
+export const signIn = function (data) {
+    try {
+        return request("/v1/signin/do", data, "POST");
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}

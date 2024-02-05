@@ -1,4 +1,10 @@
 export const baseApiUrl = 'https://api.longyuyin.com';
+const app = getApp();
+wx.getSystemInfo({
+    success: function(res) {
+        console.log(res, 'res')
+    }
+})
 
 export  const request = function(url, data, type = 'GET'){
     return new Promise((resolve, reject) => {
@@ -11,7 +17,11 @@ export  const request = function(url, data, type = 'GET'){
             },
             header: {
                 "Content-Type": "application/json",
-                "Token": wx.getStorageSync('token')
+                "Token": wx.getStorageSync('token'),
+                "app_os": app.globalData.app_os,
+                "app_opid": app.globalData.app_opid,
+                "app_version": app.globalData.app_version,
+                "app_osversion": app.globalData.app_osversion
             },
             success: (res) => {
                 // 请求成功后的回调函数

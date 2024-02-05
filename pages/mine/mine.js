@@ -37,6 +37,7 @@ Page({
                 })
                 return
             } 
+            this.setEndTime()
         })
         
     },
@@ -44,7 +45,7 @@ Page({
         return {
             title: "学霸AI口语，轻松开口，摆脱哑巴英语",
             path: `/pages/index/index?invitation_code=${this.data.userInfo.invitation_code}`,
-            imageUrl: app.globalData.baseUrl + "/imgs/share.jpg",
+            imageUrl: app.globalData.baseUrl + "/share.jpg",
         };
     },
     handleContact(e) {
@@ -66,6 +67,15 @@ Page({
                 endTime: dateParse(endTime, 'yyyy-MM-dd hh:mm:ss')
             })
         }
+    },
+    // 复制邀请码
+    copyCode(){
+        wx.setClipboardData({
+            data: this.data.userInfo.invitation_code,
+            success: function (res) {
+              console.log('复制成功')
+            }
+        })
     },
     /**
      * @param {*}

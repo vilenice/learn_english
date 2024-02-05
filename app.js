@@ -2,20 +2,34 @@
 App({
   globalData: {
     phoneNumber: wx.getStorageSync('phoneNumber'),
-    baseUrl: 'https://pic.youzu.com/hd/xcx/talking_ai'
+    baseUrl: 'https://oss.longyuyin.com/img/talking_ai/imgs',
+    app_os:'',
+    app_opid: 100,
+    app_version: '',
+    app_osversion: '',
+    userInfo: null,
+    langInfo: {
+      '中文': 'zh-cn',
+      '英文': 'en-us',
+      '日语': 'ja-jp',
+      '韩语': 'ko-kr',
+      '法语': 'fr-fr',
+      '德语': 'de-de',
+      '俄语': 'ru-ru',
+    }
   },
   onLaunch() {
 
     
     switch (__wxConfig.envVersion) {
       case 'develop':
-        this.globalData.baseUrl = 'http://127.0.0.1:1234'
+        this.globalData.baseUrl = 'https://oss.longyuyin.com/img/talking_ai/imgs'
         break
       case 'trial':
-        this.globalData.baseUrl = 'https://pic.youzu.com/hd/xcx/talking_ai'
+        this.globalData.baseUrl = 'https://oss.longyuyin.com/img/talking_ai/imgs'
         break
       case 'release':
-        this.globalData.baseUrl = 'https://pic.youzu.com/hd/xcx/talking_ai'
+        this.globalData.baseUrl = 'https://oss.longyuyin.com/img/talking_ai/imgs'
         break
     }
 
@@ -37,11 +51,15 @@ App({
         console.log(res.platform)
         if (res.platform === 'ios') {
           this.globalData.platform = 'ios'
+          this.globalData.app_os = 'ios'
           // iOS 系统
         } else if (res.platform === 'android') {
           this.globalData.platform = 'android'
+          this.globalData.app_os = 'android'
           // Android 系统
         }
+        this.globalData.app_version = res.version
+        this.globalData.app_osversion = res.system
         // this.globalData.platform = 'android'
       }
     })
@@ -51,26 +69,18 @@ App({
     logs.unshift(Date.now())
 
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    wx.loadFontFace({
-      family: 'ArialFont',
-      global: true,
-      source: this.globalData.baseUrl + '/font/Arial.ttf',
-      success: res => {
-        console.log(res, '加载字体成功')
-      },
-      fail: err => {
-        console.log(err, '加载字体失败')
-      }
-    })
+    // setTimeout(() => {
+    //   wx.loadFontFace({
+    //     family: 'ArialFont',
+    //     global: true,
+    //     source: this.globalData.baseUrl + '/font/Arial.ttf',
+    //     success: res => {
+    //       console.log(res, '加载字体成功')
+    //     },
+    //     fail: err => {
+    //       console.log(err, '加载字体失败')
+    //     }
+    //   })
+    // },100)
   },
-  globalData: {
-    userInfo: null
-  }
 })

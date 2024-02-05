@@ -1,6 +1,7 @@
 /**app.wxss**/
-$baseUrl:  'https://pic.youzu.com/hd/xcx/talking_ai';
-// $baseUrl:  'http://172.20.100.25:1234';
+$baseUrl:  'https://oss.longyuyin.com/img/talking_ai/imgs';
+$baseUrl2:  'https://oss.longyuyin.com/img';
+// $baseUrl:  'http://172.20.100.25:1234/imgs';
 $version: '?20231011';
 
 
@@ -21,7 +22,13 @@ view {
 
 
 @mixin bgImg($url) {
-  background: rgba(0, 0, 0, 0) url($baseUrl + "/imgs/#{$url}");
+  background: rgba(0, 0, 0, 0) url($baseUrl + "/#{$url}");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+@mixin bgImg2($url) {
+  background: rgba(0, 0, 0, 0) url($baseUrl2 + "/#{$url}");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

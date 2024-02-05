@@ -1,7 +1,7 @@
 const app = getApp();
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import { store } from "../../store/index";
-import { updateInfo, wxUpload, generateOrder, getUserInfo } from "../../api/index";
+import { updateInfo, updateInviteCode, generateOrder, getUserInfo } from "../../api/index";
 
 
 Page({
@@ -42,6 +42,13 @@ Page({
         });
     },
     onReady() {
+    },
+    onShow() {
+        if(true){
+            updateInviteCode({
+                code: 'WGWYLT'
+            }) 
+        } 
     },
     onUnload() {
         this.storeBindings.destroyStoreBindings();

@@ -10,7 +10,13 @@ export const store = observable({
   navHeight: 0, //自定义导航栏的高度
   menuButtonInfo: null, //胶囊按钮数据
   invitation_code: null, //被邀请的id
+  lang: wx.getStorageSync('lang') || '英文', //语言
 
+  /** 更新语言  */
+  updateLang: action(function (lang) {
+    this.lang = lang;
+    wx.setStorageSync('lang', lang)
+  }),
   /** 更新的数量  */
   updateSystemInfo: action(function (systemInfo) {
     this.systemInfo = systemInfo;

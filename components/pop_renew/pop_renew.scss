@@ -5,7 +5,7 @@
     height: 504rpx;
     padding: 230rpx 0 0;
     @include bgImg("pop_renew.png");
-    .btn-enter,.btn-svip {
+    .btn-enter,.btn-svip, .btn-invite {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -24,6 +24,7 @@
         @include bgImg("btn_svip.png");
 
     }
+    
     .renew-detail {
         display: flex;
         flex-direction: column;
@@ -35,6 +36,21 @@
             .bold {
                 color: #D67A2E;
                 font-weight: 600;
+            }
+        }
+        .btn-list {
+            display: flex;
+            .btn-invite, .btn-enter {
+                width: 243rpx;
+                height: 72rpx;
+            }
+
+            .btn-invite{
+                background: none;
+                color: #1693FF;
+                border: 2rpx solid #1693FF;
+                border-radius: 36rpx;
+                margin-right: 20rpx;
             }
         }
     }

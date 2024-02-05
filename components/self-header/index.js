@@ -16,6 +16,10 @@ Component({
         fromPage: {
             type: String,
             value: "home",
+        },
+        origin: {
+            type: String,
+            value: "",
         }
     },
     storeBindings: {
@@ -72,6 +76,10 @@ Component({
             });
             this.updateNavHeight(statusBarHeight + navBarHeight);
             this.updateMenuButtonInfo(menuInfo);
+        },
+
+        clean() {
+          this.triggerEvent('clean')  
         },
 
         // 获取用户code 储存在本地

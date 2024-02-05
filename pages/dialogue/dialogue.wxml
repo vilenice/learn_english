@@ -1,5 +1,5 @@
 <view class="dialogue-box {{showType === 'role'? 'role' : 'scene'}}">
-    <selfHeader pageType='{{2}}' titleName="{{sceneName}}" />
+    <selfHeader pageType='{{2}}' origin='dialogue' titleName="{{sceneName}}" bindclean="clean" />
     <view class="dialogue-head">
         <image class="role" src="{{roleImg}}" />
     </view>

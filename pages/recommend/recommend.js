@@ -27,7 +27,7 @@ Page({
         return {
             title: "学霸AI口语，轻松开口，摆脱哑巴英语",
             path: `/pages/index/index?invitation_code=${this.data.userInfo.invitation_code}`,
-            imageUrl: app.globalData.baseUrl + "/imgs/share.jpg",
+            imageUrl: app.globalData.baseUrl + "/share.jpg",
         };
     },
     onReady() {

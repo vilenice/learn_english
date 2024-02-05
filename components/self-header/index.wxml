@@ -1,9 +1,11 @@
 <view class="self-header-info" style="height:{{navBarHeight}}px;top:{{statusBarHeight}}px;">
     <view class="user-box" wx:if="{{pageType == 1}}" bindtap="toUserPage">
-        <image src="{{userInfo && userInfo.avatarUrl ? userInfo.avatarUrl : baseUrl + '/imgs/default_hd.jpg'}}" class="img-user-header"></image>
+        <image src="{{userInfo && userInfo.avatarUrl ? userInfo.avatarUrl : baseUrl + '/default_hd.jpg'}}" class="img-user-header"></image>
+        
         <!-- <text>{{userInfo && userInfo.name ? userInfo.name : '暂未设置昵称'}}</text> -->
     </view>
-    <view class="icon_back" wx:elif="{{pageType == 2}}" bindtap="toBack">
+    <view class="icon_back {{origin === 'dialogue' ? 'white' : ''}}" wx:elif="{{pageType == 2}}" bindtap="toBack">
     </view>
+    <view class="icon-clean" wx:if="{{origin === 'dialogue'}}" bindtap="clean"></view>
     <text class="title">{{titleName}}</text>
 </view>

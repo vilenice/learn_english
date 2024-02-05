@@ -1,6 +1,6 @@
 // logs.js
 
-import { wxUpload,  chatInit, chatGenerate, sendGenerate, generateAnswer, generateSubject} from "../../api/index";
+import { wxUpload,  chatInit, chatGenerate, sendGenerate, generateAnswer, generateSubject, clearContext} from "../../api/index";
 
 const app = getApp();
 
@@ -110,6 +110,17 @@ Page({
     async scrollTop(e) {
         if(!this.data.last_id) return
         await this.initList(this.data.last_id)
+    },
+    // 清除上下文
+    async clean() {
+        const res = await clearContext({
+            identity: this.data.identity
+        })
+        wx.showToast({
+            title: '已清除上下文',
+            icon: 'none',
+            duration: 2000
+        })
     },
     playVoice(data) {
         const { id, type } = data.detail;
